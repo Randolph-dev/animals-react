@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import { animals } from './assets/animalsList';
-import { insects } from './assets/animalsList';
-import { fishes } from './assets/animalsList';
-import { birds } from './assets/animalsList';
+import { animals, insects, fishes, birds } from './assets/animalsList';
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
 import Card from './Card.jsx';
@@ -18,6 +15,7 @@ function Cards() {
   })
 }
 
+
 function App() {
   return (
     <>
@@ -25,6 +23,7 @@ function App() {
     <main>
         {animals.map((animal) => (
           <Card key={animal.name} {...animal} />
+
         ))}
     </main>
     <Footer />
