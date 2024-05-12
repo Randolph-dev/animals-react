@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './index.css';
 
 const Card = ({ name, addLikes, removeLikes, removeImage }) => {
     const capitalizedLetters = name.charAt(0).toUpperCase() + name.slice(1);

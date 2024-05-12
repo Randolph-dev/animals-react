@@ -1,11 +1,27 @@
 import { useState } from 'react';
 import './App.css';
 import { animals, insects, fishes, birds } from './assets/animalsList';
-import Header from './Header.jsx';
-import Footer from './Footer.jsx';
-import Card from './Card.jsx';
+import Header from './Components/Header.jsx';
+import Footer from './Components/Footer.jsx';
+import Card from './Components/Card.jsx';
+import ErrorPage from './Pages/ErrorPage.jsx';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+
 
 function App() {
+  const router = createBrowserRouter([
+    { 
+      path:'/', 
+      element: <Root />,
+      errorElement: <ErrorPage/>,
+      children: [
+        { path: '/animals', element: <Animals /> },
+        { path:'/about', element: <Insects/>},
+        { path:'/fishes', element: <Fishes/>},
+        { path:'/birds', element: <Birds/>},
+  ],
+},
+]);
 
   const [animalsData, setAnimalsData] = useState(animals);
 
@@ -21,8 +37,10 @@ function App() {
     console.log('added likes');
   };
 
+
   return (
     <>
+    <RouterProvider router={router} />;
     <Header />
     <main>
         {animalsData.map((animal) => (
