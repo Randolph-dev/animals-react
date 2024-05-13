@@ -1,21 +1,37 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink} from 'react-router-dom';
+import './css/header.css';
+
 
 const Header = () => {
     return (
-    <header>
-        <h1>Animal Zoo</h1>    
-        <nav>
-            <ul>
-                <li><Link to='/'>Welcome to the Animal Zoo!</Link>
-                <li><Link to='/Animals'>Animals</Link></li>   
-                <li><Link to='/Birds'>Birds</Link></li>                     
-                <li><Link to='/Fishes'>Fishes</Link></li>                     
-                <li><Link to='/Insects'>Insects</Link></li>                     
-                </li>
-            </ul>
-        </nav>
-    </header>
+      <header>
+  <h1>Welcome to the Animal Zoo!</h1>
+  <nav>
+    <ul>
+      <li>
+        <NavLink to ="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to ="/animals">Animals</NavLink>
+      </li>
+      <li>
+        <NavLink to ="/birds">Birds</NavLink>
+      </li>
+      <li>
+        <NavLink to ="/insects">Insects</NavLink>
+      </li>
+      <li>
+        <NavLink to ="/fishes">Fishes</NavLink>
+      </li>
+      <li>
+        <NavLink to ="/about">About</NavLink>
+      </li>
+    </ul>
+  </nav>
+  
+      </header>
+      
     );
-};
-
-export default Header;
+  };
+  
+  export default Header;
