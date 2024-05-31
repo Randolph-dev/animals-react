@@ -10,7 +10,7 @@ function Header() {
   return (
     <header className='Nav-bar'>
     <Navbar expand="lg" className="bg-body-tertiary">
-    <h1>Welome to the animal Zoo!</h1>
+    <h1>Welcome to the animal Zoo!</h1>
       <Container>
         <Navbar.Brand href="/">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
