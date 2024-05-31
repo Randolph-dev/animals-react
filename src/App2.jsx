@@ -55,37 +55,29 @@ function App() {
   
 
   const router = createBrowserRouter([
-   
-    {path: '/', element: <Home />},
+    { path: "/", element: <Home /> },
     {
-      path: '/',
+      path: "/",
       element: <Root />,
-      errorElement: <ErrorPage />,
-      children:[
-        {path: ':category', element: ( 
+     errorElement: <ErrorPage />,
+      children: [
+        { path: ":category", 
+        element: (
         <CategoryPage 
-         
         addLikes={likesHandler} 
         removeLikes={likesHandler} 
-        removeCard ={removeHandler} 
-        {...zoo} 
-        />
-        ),
+        removeCard={removeHandler}
+         {...zoo} 
+         /> 
+  ),
         },
-         {path: '/about', element:<About/>},
-        {
-          path:":category/:name",
-          element:<animalsList {...zoo} />
-        },
-        {
-          path: "/:category/:name", 
-          element: <SinglePage {...zoo} />
-        },
-
-      ]
-    }
+        {path: ':category/:name', element: <SinglePage {...zoo} />},
+        { path: "/About", element: <About /> },
+      ],
+    },
   ]);
-  return <RouterProvider router= {router} />;
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

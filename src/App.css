@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Add this CSS to your stylesheet */
+.category-page-container {
+  margin-top: 20px; /* Adjust this value as needed */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust this value for the spacing between cards */
+}
+
+/* Adjust Card component styles as needed */
