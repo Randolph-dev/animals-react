@@ -8,6 +8,8 @@ import CategoryPage from "./routes/CategoryPage.jsx";
 import ErrorPage from "./Pages/ErrorPage.jsx";
 import { animals, birds, insects,fishes } from "./assets/animalsList.js";
 import SinglePage from "./routes/SinglePage.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const [zoo, setZoo] = useState({ animals, birds, insects, fishes });
@@ -62,7 +64,7 @@ function App() {
       element: <Root />,
       errorElement: <ErrorPage />,
       children:[
-        {path: ':category', element: ( 
+        {path: ':category', element: 
         <CategoryPage 
          
         addLikes={likesHandler} 
@@ -70,7 +72,7 @@ function App() {
         removeCard ={removeHandler} 
         {...zoo} 
         />
-        ),
+        ,
         },
          {path: '/about', element:<About/>},
         {
