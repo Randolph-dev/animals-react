@@ -23,7 +23,7 @@ const CategoryPage = ({ removeCard, removeLikes, addLikes, ...rest }) => {
       <input
         className="searchAnimal"
         type="text"
-        placeholder="Animal..."
+        placeholder={`Search ${category}`}
         value={searchQuery}
         onChange={handleSearchChange}
       />
