@@ -6,7 +6,7 @@ import {useParams} from "react-router-dom";
     
     const categoryItems = rest[params.category];
 
-    const data = categoryItems.find(el => el. name === params.name);
+    const data = categoryItems.find(el => el.name === params.name);
   return (
   <>
   <h2>{data.name}</h2>
