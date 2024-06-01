@@ -42,3 +42,15 @@
   margin-top: 10px;
 }
 
+.btn-read-more {
+  background-color: none; 
+  color: blue; 
+  border: none; 
+  cursor: pointer; /* Indicate clickable behavior */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Allow inline placement */
+}
+
+.btn-read-more:hover { /* Styles on hover */
+  color: blue; /* Change hover background color */
+}

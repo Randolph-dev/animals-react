@@ -1,27 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Card from "../Components/Card";
+import '../Components/css/categorypage.css'
 
-
-
-const CategoryPage = ({removeCard, removeLikes, addLikes, ...rest}) => {
+const CategoryPage = ({ removeCard, removeLikes, addLikes, ...rest }) => {
   const { category } = useParams();
-  
- const categoryItems = rest[category];
+  const categoryItems = rest[category] || [];
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredItems = categoryItems.filter(item =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <>
+    <div className="category-page-container">
       <h2>{category}</h2>
-      {categoryItems.map((item)=>{
-        return <Card 
-        key = {item.name} 
-        name={item.name} 
-        likes={item.likes}
-        removeCard={()=>removeCard(item.name, category)} 
-        removeLikes={()=>removeLikes(item.name, category, 'remove')} 
-        addLikes={()=>addLikes(item.name, category, 'add')}
-        />;
-      })}
-    </>
+      <input
+        className="searchAnimal"
+        type="text"
+        placeholder="Animal..."
+        value={searchQuery}
+        onChange={handleSearchChange}
+      />
+      <div className="card-container">
+        {filteredItems.map((item) => (
+          <Card
+            key={item.name}
+            name={item.name}
+            likes={item.likes}
+            removeCard={() => removeCard(item.name, category)}
+            removeLikes={() => removeLikes(item.name, category, "remove")}
+            addLikes={() => addLikes(item.name, category, "add")}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 

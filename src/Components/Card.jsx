@@ -25,7 +25,7 @@ const Card = ({ name, addLikes, removeLikes, removeCard }) => {
             <p>Number of likes: {likeCounter} </p>
             <Link
             to={`https://en.wikipedia.org/wiki/${encodeURIComponent(name)}`}
-            className="btn btn-primary"
+            className="btn-read-more"
             target="_blank"
             rel="noopener noreferrer"
     >

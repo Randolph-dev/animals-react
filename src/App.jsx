@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [zoo, setZoo] = useState({ animals, birds, insects, fishes });
+  
 
   const likesHandler = (name, category, action)=>{
    setZoo((prevZoo) => ({
@@ -29,32 +30,6 @@ function App() {
       [category] : prevZoo[category].filter(el => el.name !==name),
     }))
   };
-
-  // const removeCard = (animal)=>{
-  //   const updatedArray = animalsData.filter((item)=>item.name !== animal);
-  //   setAnimalsData(updatedArray);
-  // };
-
-  // const likesHandler = (animal, action) => {
-  //  const updatedArray = animalsData.map(item=>{
-  //   if(item.name === animal){
-  //     if(action === 'add'){
-  //       return {...item, likes: item.likes +1 };
-  //     }else{
-  //       return {...item, likes: item.likes -1 };
-  //     }
-  //   }else{
-  //     return item;
-  //   }
-  //  });
-  //  setAnimalsData(updatedArray);
-  // };
-
-  // const removeCard = (animal)=>{
-  //   const updatedArray = animalsData.filter((item)=>item.name !== animal);
-  //   setAnimalsData(updatedArray);
-  // };
-  
 
   const router = createBrowserRouter([
    
