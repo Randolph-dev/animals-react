@@ -12,3 +12,10 @@ h1 {
     font-size: 24px;   
     position: default;
   }
+
+  .Nav-bar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+  }

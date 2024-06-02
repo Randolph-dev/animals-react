@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -32,37 +33,35 @@ function App() {
   };
 
   const router = createBrowserRouter([
-   
     {path: '/', element: <Home />},
     {
       path: '/',
       element: <Root />,
       errorElement: <ErrorPage />,
-      children:[
-        {path: ':category', element: 
-        <CategoryPage 
-         
-        addLikes={likesHandler} 
-        removeLikes={likesHandler} 
-        removeCard ={removeHandler} 
-        {...zoo} 
-        />
-        ,
-        },
-         {path: '/about', element:<About/>},
+      children: [
+        { path: 'about', element: <About /> },
         {
-          path:":category/:name",
-          element:<animalsList {...zoo} />
+          path: ':category',
+          element: <CategoryPage 
+                      addLikes={likesHandler} 
+                      removeLikes={likesHandler} 
+                      removeCard={removeHandler} 
+                      {...zoo} 
+                    />
         },
         {
-          path: "/:category/:name", 
-          element: <SinglePage {...zoo} />
-        },
-
+          path: ':category/:name',
+          element: <SinglePage 
+                      {...zoo} 
+                      likesHandler={likesHandler} 
+                      removeHandler={removeHandler} 
+                   />
+        }
       ]
     }
   ]);
-  return <RouterProvider router= {router} />;
+  
+  return <RouterProvider router={router} />;  
 }
 
 export default App;

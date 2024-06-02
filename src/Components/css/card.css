@@ -46,11 +46,11 @@
   background-color: none; 
   color: blue; 
   border: none; 
-  cursor: pointer; /* Indicate clickable behavior */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Allow inline placement */
+  cursor: pointer; 
+  text-decoration: none; 
+  display: inline-block;
 }
 
-.btn-read-more:hover { /* Styles on hover */
-  color: blue; /* Change hover background color */
+.btn-read-more:hover { 
+  color: blue;
 }
