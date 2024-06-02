@@ -1,0 +1,31 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-container h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.about-container p {
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.about-container ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.about-container ul li {
+    margin-bottom: 10px;
+}
+
+.about-container ul li ul {
+    margin-top: 5px;
+    margin-left: 20px;
+}
