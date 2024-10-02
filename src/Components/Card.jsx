@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Components/css/card.css';
+import { fetchAnimalImage } from '../utils/imageService.js';  
 
 const Card = ({ name, category, addLikes, removeLikes, removeCard }) => {
   const capitalizedLetters = name.charAt(0).toUpperCase() + name.slice(1);
   const [likeCounter, setLikeCounter] = useState(0);
+  const [imageUrl, setImageUrl] = useState('');  
+
+  useEffect(() => {
+    fetchAnimalImage(name, 200).then((url) => {
+      setImageUrl(url);  
+    });
+  }, [name]);
 
   const handleLikes = (action) => {
     if (action === 'add') {
@@ -20,11 +28,15 @@ const Card = ({ name, category, addLikes, removeLikes, removeCard }) => {
     <div className='card'>
       <h2>{capitalizedLetters}</h2>
       <div className='image-container'>
-        <img
-          src={`https://source.unsplash.com/random/200x200/?${name}`}
-          alt={capitalizedLetters}
-          className='card-image'
-        />
+        {imageUrl ? (
+          <img
+            src={imageUrl}
+            alt={capitalizedLetters}
+            className='card-image'
+          />
+        ) : (
+          <p>Loading image...</p>  
+        )}
         <button className='btn-close' alt='removeImage' onClick={() => removeCard(name, category)}></button>
       </div>
       <br />

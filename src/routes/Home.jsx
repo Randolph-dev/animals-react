@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../Components/css/home.css';
+import { fetchAnimalImage } from '../utils/imageService';  
 
 const Home = () => {
   const categories = [
@@ -10,6 +11,19 @@ const Home = () => {
     { name: "Fishes", path: "/fishes" },
   ];
 
+  const [categoryImages, setCategoryImages] = useState({});
+
+  useEffect(() => {
+    categories.forEach((category) => {
+      fetchAnimalImage(category.name.toLowerCase(), 400).then((url) => {
+        setCategoryImages((prevState) => ({
+          ...prevState,
+          [category.name]: url,
+        }));
+      });
+    });
+  }, []);
+
   return (
     <div className="home-container">
       {categories.map((category) => (
@@ -18,7 +32,7 @@ const Home = () => {
           to={category.path}
           className="category-link"
           style={{
-            backgroundImage: `url(https://source.unsplash.com/random/?${category.name.toLowerCase()})`
+            backgroundImage: `url(${categoryImages[category.name] || 'https://via.placeholder.com/400'})`  
           }}
         >
           <div className="category-name">{category.name}</div>
