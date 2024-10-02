@@ -12,6 +12,7 @@ Home page displaying animal cards per category.
 ## Category Page
 Categories can be accessed through the drop down menu from the navigation bar.
 ![Animals-React](animalsReactAppCategories.png)
+![Animals-React](categoryPage.png)
 
 ## About Page
 A page with a brief description of the React web application with its features and a small diary/self reflection.
