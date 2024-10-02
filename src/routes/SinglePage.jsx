@@ -22,7 +22,6 @@ const SinglePage = ({ zoo }) => {
       <img src={`https://source.unsplash.com/random/400x400/?${name}`} alt={animal.name} />
       <p>Category: {category}</p>
       <p>Likes: {animal.likes}</p>
-      <p>More information about the creature goes here...</p>
       <Link to={`/${category}`} className="btn-go-back">Go Back</Link>
     </div>
   );
