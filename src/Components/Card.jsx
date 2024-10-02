@@ -6,7 +6,15 @@ const Card = ({ name, category, addLikes, removeLikes, removeCard }) => {
   const capitalizedLetters = name.charAt(0).toUpperCase() + name.slice(1);
   const [likeCounter, setLikeCounter] = useState(0);
 
-  const handleLikes = (action) => action === 'add' ? setLikeCounter(likeCounter + 1) && addLikes() : setLikeCounter(likeCounter - 1) && removeLikes();
+  const handleLikes = (action) => {
+    if (action === 'add') {
+      setLikeCounter(likeCounter + 1);
+      addLikes(name, category, 'add');
+    } else {
+      setLikeCounter(likeCounter - 1);
+      removeLikes(name, category, 'remove');
+    }
+  };
 
   return (
     <div className='card'>
@@ -17,7 +25,7 @@ const Card = ({ name, category, addLikes, removeLikes, removeCard }) => {
           alt={capitalizedLetters}
           className='card-image'
         />
-        <button className='btn-close' alt='removeImage' onClick={removeCard}></button>
+        <button className='btn-close' alt='removeImage' onClick={() => removeCard(name, category)}></button>
       </div>
       <br />
       <button className='likes' alt='likes' onClick={() => handleLikes('add')}>

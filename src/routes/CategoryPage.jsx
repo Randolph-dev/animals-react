@@ -19,7 +19,7 @@ const CategoryPage = ({ removeCard, removeLikes, addLikes, ...rest }) => {
 
   return (
     <div className="category-page-container">
-      <h2>{category}</h2>
+      <h2>{category.charAt(0).toUpperCase() +category.slice(1)}</h2> 
       <input
         className="searchAnimal"
         type="text"
@@ -32,6 +32,7 @@ const CategoryPage = ({ removeCard, removeLikes, addLikes, ...rest }) => {
           <Card
             key={item.name}
             name={item.name}
+            category={category} 
             likes={item.likes}
             removeCard={() => removeCard(item.name, category)}
             removeLikes={() => removeLikes(item.name, category, "remove")}

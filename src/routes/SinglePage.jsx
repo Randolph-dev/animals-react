@@ -1,27 +1,29 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { animals, birds, insects, fishes } from '../assets/animalsList.js'; 
-import Card from '../Components/Card.jsx';
 
-const SinglePage = () => {
-  const { name } = useParams();
+const SinglePage = ({ zoo }) => {  
+  const { category, name } = useParams(); 
 
-  const allAnimals = [...animals, ...birds, ...insects, ...fishes]; 
+  const categoryData = zoo[category];
 
-  const animal = allAnimals.find(animal => animal.name === name); 
+  if (!categoryData) {
+    return <div>Category not found</div>;  
+  }
+
+  const animal = categoryData.find(animal => animal.name === name);
 
   if (!animal) {
-    return <div>Animal not found</div>;
+    return <div>Animal not found</div>; 
   }
 
   return (
     <div>
-      <Card
-        name={animal.name}
-        category={animal.category}
-      />
-      <br />
-      <Link to="/animals" className="btn-go-back">Go Back</Link>
+      <h2>{animal.name}</h2>
+      <img src={`https://source.unsplash.com/random/400x400/?${name}`} alt={animal.name} />
+      <p>Category: {category}</p>
+      <p>Likes: {animal.likes}</p>
+      <p>More information about the creature goes here...</p>
+      <Link to={`/${category}`} className="btn-go-back">Go Back</Link>
     </div>
   );
 };
